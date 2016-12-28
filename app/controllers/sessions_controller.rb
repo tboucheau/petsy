@@ -5,6 +5,14 @@ class SessionsController < ApplicationController
   end
 
   def create
+      user_params = params.require(:user)
+      @user = User.where(username: user_params[:username]).or(User.where(email: user_params[:email])).first
+      if @user and @user.authenticate(user_params[:password])
+        session[:auth] = @user.to_session
+          redirect_to profil_path, success: 'Connection réussie'
+      else
+          redirect_to new_session_path, danger: 'Identifiants incorrects'
+      end
   end
 
   def destroy
