@@ -20,7 +20,7 @@ class UsersController < ApplicationController
     def confirm
         @user = User.find(params[:id])
         if @user.confirmation_token == params[:confirmation_token]
-            @user.update_attribute(confirmed: true, confirmation_token: nil)
+            @user.update_attributes(confirmed: true, confirmation_token: nil)
             @user.save(validate: false)
             session[:auth] = {id: @user.id}
             redirect_to new_user_path, success: 'Votre compte a bien été confirmé'
