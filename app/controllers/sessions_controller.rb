@@ -18,6 +18,3 @@ class SessionsController < ApplicationController
   def destroy
   end
 end
-
-
-["name = :name and email = :email", { name: "Joe", email: "joe@example.com" }])
