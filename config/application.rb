@@ -8,6 +8,10 @@ Bundler.require(*Rails.groups)
 
 module Petsy
   class Application < Rails::Application
+    config.site = {
+        name: 'Petsy'
+        }
+
     config.generators do |g|
         g.assets false
         g.helper false
