@@ -13,7 +13,7 @@
         S'inscrire
     </div>
     <div class="panel-body">
-        <%= form_for @user, html: {class: 'form-horizontal'} do |f| %>
+        <%= form_for @user, url: profil_path, html: {class: 'form-horizontal'} do |f| %>
         <div class="form-group">
             <%= f.label :username, "Nom d'utilisateur", class: 'col-md-4 control-label' %>
             <div class="col-md-6">
