@@ -10,6 +10,7 @@ class ApplicationController < ActionController::Base
     def only_signed_in
         if !session[:auth] || !session[:auth]['id']
             redirect_to new_user_path, danger: "Vous n'avez pas le droit d'accéder à cette page"
+        end
     end
 
 end
