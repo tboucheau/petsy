@@ -9,7 +9,7 @@ class SessionsController < ApplicationController
       @user = User.where(username: user_params[:username]).or(User.where(email: user_params[:email])).where(confirmed: true).first
       if @user and @user.authenticate(user_params[:password])
         session[:auth] = @user.to_session
-          redirect_to profil_path, success: 'Connection réussie'
+        redirect_to profil_path, success: 'Connexion réussie'
       else
           redirect_to new_session_path, danger: 'Identifiants incorrects'
       end
