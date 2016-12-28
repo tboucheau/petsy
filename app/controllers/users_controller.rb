@@ -1,5 +1,7 @@
 class UsersController < ApplicationController
 
+    skip_before_action :only_signed_in, only: [:new, :create, :confirm]
+
     def new
         @user = User.new
     end
@@ -28,4 +30,13 @@ class UsersController < ApplicationController
         end
 
     end
+
+    def edit
+        @user = User.find(session[:auth]['id'])
+
+    end
+
+    def update
+    end
+
 end
