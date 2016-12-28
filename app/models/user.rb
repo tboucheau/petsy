@@ -24,7 +24,7 @@ class User < ApplicationRecord
         path = File.join(
             Rails.public_path,
             self.class.name.downcase.pluralize,
-            id,
+            id.to_s,
             'avatar.jpg')
         if avatar_file.respond_to? :path
             dir = File.dirname(path)
