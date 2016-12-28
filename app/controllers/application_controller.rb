@@ -15,6 +15,10 @@ class ApplicationController < ActionController::Base
         end
     end
 
+    def user_signed_in?
+        !current_user.nil?
+    end
+
     # Retourne l'utilisateur actuellement connecté
     def current_user
         return nil if !session[:auth] || !session[:auth]['id']
@@ -22,7 +26,5 @@ class ApplicationController < ActionController::Base
         @user = User.find_by_id(session[:auth]['id'])
     end
 
-    def user_signed_in?
-        current_user.nil?
-    end
+
 end
