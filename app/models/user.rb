@@ -28,7 +28,7 @@ class User < ApplicationRecord
             'avatar.jpg')
         if avatar_file.respond_to? :path
             dir = File.dirname(path)
-            FileUtils.mkdir_p(dir) unless Dir.exist?(Dir)
+            FileUtils.mkdir_p(dir) unless Dir.exist?(dir)
             FileUtils.cp(avatar_file.path, path)
         end
     end
