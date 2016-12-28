@@ -10,7 +10,7 @@ class UsersController < ApplicationController
         if @user.valid?
             @user.save
             UserMailer.confirm(@user).deliver_now
-            redirect_to :new, success: 'Votre compte a bien été créé, vous devriez recevoir un email pour confirmer votre compte'
+            redirect_to :new, success: 'Votre compte a bien été créé, vous aller recevoir un email pour le confirmer'
             render 'new'
         else
             render 'new'
