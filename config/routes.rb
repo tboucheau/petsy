@@ -1,9 +1,4 @@
 Rails.application.routes.draw do
-  get 'sessions/new'
-
-  get 'sessions/create'
-
-  get 'sessions/destroy'
 
     root to: 'users#new'
     get '/profil', to: 'users#edit', as: :profil
@@ -13,5 +8,6 @@ Rails.application.routes.draw do
             get 'confirm'
         end
     end
+    resources :session, only: [:new, :create, destroy]
 
 end
