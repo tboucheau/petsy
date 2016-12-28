@@ -16,5 +16,7 @@ class SessionsController < ApplicationController
   end
 
   def destroy
+      session.destroy
+      redirect_to new_session_path, success: 'vous êtes maintenant déconnecté'
   end
 end
