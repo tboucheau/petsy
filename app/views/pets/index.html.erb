@@ -22,7 +22,7 @@
             <td><%= image_tag pet.avatar_url %></td>
             <td><%= pet.name %></td>
             <td><%= pet.gender %></td>
-            <td><%= pet.age %></td>
+            <td><%= pet.age %> <%= 'an'.pluralize(pet.age) %></td>
             <td><%= pet.species.name %></td>
             <td>
                 <%= link_to 'Voir', pet, class: 'btn btn-default' %>
