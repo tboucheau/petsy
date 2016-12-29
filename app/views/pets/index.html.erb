@@ -1,6 +1,10 @@
 <%= content_for :content do %>
 
 <h1>Gérer mes animaux</h1>
+
+<p class="text-right">
+    <a href="<%= new_pet_path%>" class="btn btn-primary">Ajouter un animal</a>
+</p>
 <table class="table table-striped">
     <thead>
         <tr>
