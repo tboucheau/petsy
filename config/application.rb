@@ -19,6 +19,6 @@ module Petsy
         g.jbuilder false
     end
 
-    config.assets.paths >> Rails.root.join('lib', 'assets', 'lib')
+    config.assets.paths << Rails.root.join('lib', 'assets', 'lib')
   end
 end
