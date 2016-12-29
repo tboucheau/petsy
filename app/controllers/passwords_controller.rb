@@ -31,7 +31,7 @@ class PasswordsController < ApplicationController
             if @user.valid?
                @user.recover_password = nil
                @user.save
-               session[:auth]
+               session[:auth] = @user.to_session
                redirect_to profil_path, success: 'Votre mot de passe a bien été modifié'
             end
         else
