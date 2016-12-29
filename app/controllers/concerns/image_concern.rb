@@ -40,14 +40,27 @@ module ImageConcern
                         dir = File.dirname(path)
                         FileUtils.mkdir_p(dir) unless Dir.exist?(dir)
                         image = MiniMagick::Image.new(#{field}_file.path) do |b|
-                            b.resize '#{options[:resize].delete('!')}^'
                             if options[:resize].ends_with?('!')
+                                b.resize '#{options[:resize].delete('!')}^'
                                 b.gravity 'Center'
                                 b.crop '#{options[:resize].delete('!')}+0+0'
+                            else
+                                b.resize '#{options[:resize].delete('!')}\>'
                             end
                         end
                         image.format 'jpg'
                         image.write path
+                        if options[:formats]
+                            options[:formats].each do |k, v|
+                                image = MiniMagick::Image.new(#{field}_file.path) do |b|
+                                    b.resize "\#{v}^"
+                                    b.gravity 'Center'
+                                    b.crop "\#{v}}+0+0"
+                                end
+                                image.format 'jpg'
+                                image.write path.gsub('.jpg', "_\#{k}.jpg")
+                            end
+                        end
                     end
                 end
 
