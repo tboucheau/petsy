@@ -8,7 +8,7 @@ class SessionsController < ApplicationController
 
   def create
       user_params = params.require(:user)
-      @user = User.where(username: user_params[:username], confirmed: true).or(User.where(email: user_params[:username], confirmed: true)).first
+      @user = User.where('confirmed = 1 AND (username = :username OR email = :username)', username: user_params[:username]).first
       if @user and @user.authenticate(user_params[:password])
           session[:auth] = @user.to_session
           redirect_to profil_path, success: 'Connexion réussie'
