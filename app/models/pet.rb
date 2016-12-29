@@ -2,9 +2,9 @@ class Pet < ApplicationRecord
     belongs_to :user
     belongs_to :species
 
-    #validates :name, :gender, :birthday, presence: true
-    #validates :gender, format: {with: /\A(M|F)\z/}
-    #validates :birthday_not_future
+    validates :name, :gender, :birthday, presence: true
+    validates :gender, format: {with: /\A(M|F)\z/}
+    validate :birthday_not_future
 
 
     def birthday_not_future
