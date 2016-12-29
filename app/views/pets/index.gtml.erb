@@ -1,0 +1,32 @@
+<%= content_for :content do %>
+
+<h1>Gérer mes animaux</h1>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Avatar</th>
+            <th>Nom</th>
+            <th>Sexe</th>
+            <th>Age</th>
+            <th>Espèce</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        <% @pets.each do |pet| %>
+        <tr>
+            <td><%= debug pet %></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <% end %>
+    </tbody>
+</table>
+
+<% end %>
+
+
+<%= render template: 'layout/profile' %>
