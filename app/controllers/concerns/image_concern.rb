@@ -56,7 +56,7 @@ module ImageConcern
 
                 def #{field}_destroy
                     dir = File.dirname(#{field}_path)
-                    FileUtils.rm_r(dir) if Dir.exist?
+                    FileUtils.rm_r(dir) if Dir.exist?(dir)
                 end
 
             METHODS
