@@ -10,23 +10,23 @@
   <% end %>
 
   <div class="form-group">
-    <%= f.label :name, class: 'col-md-4 control-label' %>
+    <%= f.label :name, 'Titre', class: 'col-md-4 control-label' %>
     <div class="col-md-8">
         <%= f.text_field :name, class: 'form-control' %>
     </div>
   </div>
 
-  <div class="form-group">
-    <%= f.label :content, class: 'col-md-4 control-label' %>
+    <div class="form-group">
+    <%= f.label :image_file, 'Image', class: 'col-md-4 control-label' %>
     <div class="col-md-8">
-        <%= f.text_area :content, class: 'form-control' %>
+        <%= f.file_field :image_file, class: 'form-control' %>
     </div>
   </div>
 
   <div class="form-group">
-    <%= f.label :user_id, class: 'col-md-4 control-label' %>
+    <%= f.label :content, 'Contenu', class: 'col-md-4 control-label' %>
     <div class="col-md-8">
-        <%= f.text_field :user_id, class: 'form-control' %>
+        <%= f.text_area :content, class: 'form-control' %>
     </div>
   </div>
 

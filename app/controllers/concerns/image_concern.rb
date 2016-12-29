@@ -4,7 +4,7 @@ module ImageConcern
 
     module ClassMethods
         def has_image(field, options = {})
-            options[:resize] = 150 if options[:resize].nil?
+            options[:resize] = '150x150!' if options[:resize].nil?
 
             attr_accessor "#{field}_file".to_sym
             validates "#{field}_file".to_sym, file: {ext: [:jpg, :png]}
@@ -35,13 +35,16 @@ module ImageConcern
 
                 def #{field}_after_upload
                     path = #{field}_path
+                    options = #{options}
                     if #{field}_file.respond_to? :path
                         dir = File.dirname(path)
                         FileUtils.mkdir_p(dir) unless Dir.exist?(dir)
                         image = MiniMagick::Image.new(#{field}_file.path) do |b|
-                            b.resize '#{options[:resize]}x#{options[:resize]}^'
-                            b.gravity 'Center'
-                            b.crop '#{options[:resize]}x#{options[:resize]}+0+0'
+                            b.resize '#{options[:resize].delete('!')}^'
+                            if options.ends_with('!')
+                                b.gravity 'Center'
+                                b.crop '#{options[:resize].delete('!')}+0+0'
+                            end
                         end
                         image.format 'jpg'
                         image.write path
