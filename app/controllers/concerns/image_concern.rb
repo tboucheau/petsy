@@ -41,7 +41,7 @@ module ImageConcern
                         FileUtils.mkdir_p(dir) unless Dir.exist?(dir)
                         image = MiniMagick::Image.new(#{field}_file.path) do |b|
                             b.resize '#{options[:resize].delete('!')}^'
-                            if options.ends_with('!')
+                            if options.end_with('!')
                                 b.gravity 'Center'
                                 b.crop '#{options[:resize].delete('!')}+0+0'
                             end
