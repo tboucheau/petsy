@@ -7,7 +7,7 @@ class Pet < ApplicationRecord
     validates :avatar_file, presence: true, on: :create
     validate :birthday_not_future
 
-    has_image :avatar, resize: 150
+    has_image :avatar
 
     def age
         Time.now.year - birthday.year
