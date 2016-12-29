@@ -19,12 +19,16 @@
     <tbody>
         <% @pets.each do |pet| %>
         <tr>
-            <td><%= debug pet %></td>
             <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
+            <td><%= pet.name %></td>
+            <td><%= pet.gender %></td>
+            <td><%= pet.brithday %></td>
+            <td><%= pet.species.name %></td>
+            <td>
+                <%= link_to 'Voir', pet, class: 'btn btn-default' %>
+                <%= link_to 'Editer', [:edit, pet], class: 'btn btn-primary' %>
+                <%= link_to 'Supprimer', [:edit, pet], class: 'btn btn-danger', data: {method: :delete, confirm: 'Voulez-vous vraiment supprimer cet animal'} %>
+            </td>
         </tr>
         <% end %>
     </tbody>
