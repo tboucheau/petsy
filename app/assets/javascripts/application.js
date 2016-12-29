@@ -17,4 +17,8 @@
 //= require_tree .
 //= require_self
 
-flatpickr('.form-datepicker')
+flatpickr('.form-datepicker', {
+    altInput: true,
+    atlFormat: 'j F Y',
+    maxDate: new Date()
+    })
