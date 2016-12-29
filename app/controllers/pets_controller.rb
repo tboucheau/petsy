@@ -1,5 +1,7 @@
 class PetsController < ApplicationController
 
+    before_action set_pet, only: [:show, :edit, :update, :destroy]
+
     def index
         @pets = current_user.pets
     end
@@ -17,8 +19,28 @@ class PetsController < ApplicationController
         end
     end
 
+    def edit
+    end
+
+    def update
+        if @pet.update(pet_params)
+            redirect_to pets_path, success: 'Votre animal a bien été modifié'
+        else
+            render 'edit'
+        end
+    end
+
+    def destroy
+        @pet.destroy
+        redirect_to pets_path, success: 'Votre animal a bien été supprimé'
+    end
+
     private
     def pet_params
         params.require(:pet).permit(:name, :gender, :birthday, :species_id)
+    end
+
+    def set_pet
+        @pet = Pet.find(params[:id])
     end
 end
