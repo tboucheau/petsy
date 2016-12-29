@@ -7,6 +7,6 @@ class UserMailer < ApplicationMailer
 
     def password(user)
         @user = user
-        mail(to:user.email, subject: 'Réinitialisation de votre mot de passe' + Rails.application.config.site[:name])
+        mail(to: user.email, subject: 'Réinitialisation de votre mot de passe' + Rails.application.config.site[:name])
     end
 end
