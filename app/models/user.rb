@@ -1,8 +1,8 @@
 class User < ApplicationRecord
 
 
-    has_many :pets, dependant: :destroy
-    has_many :posts, dependant: :destroy
+    has_many :pets, dependent: :destroy
+    has_many :posts, dependent: :destroy
 
     has_secure_password
     has_secure_token :confirmation_token
