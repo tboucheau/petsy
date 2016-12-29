@@ -3,7 +3,7 @@
         Mot de passe oublié
     </div>
     <div class="panel-body">
-        <%= form_for :user, url: password_path, html: {class: 'form-horizontal'} do |f| %>
+        <%= form_for :user, url: passwords_path, html: {class: 'form-horizontal'} do |f| %>
         <div class="form-group">
             <%= f.label :email, "Votre email", class: 'col-md-4 control-label' %>
             <div class="col-md-6">
