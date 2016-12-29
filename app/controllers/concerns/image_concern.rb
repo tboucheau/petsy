@@ -13,11 +13,12 @@ module ImageConcern
             after_destroy_commit "#{field}_destroy".to_sym
 
             class_eval <<-METHODS, __FILE__, __LINE__ + 1
-                def #{field}_url
+                def #{field}_url(format = nil)
+                    format = "_\#{format}" unless format.nil?
                     '/uploads/' + [
                     self.class.name.downcase.pluralize,
                     id.to_s,
-                    '#{field}.jpg'
+                    "#{field}\#{format}.jpg"
                     ].join('/')
                 end
 
