@@ -19,7 +19,6 @@ class PasswordsController < ApplicationController
     end
 
     def edit
-        user_params = params.require(:user)
         @user = User.find(params[:id])
         if @user.recover_password != params[:token]
             redirect_to new_password_path, danger: 'Token invalide'
