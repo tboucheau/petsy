@@ -7,7 +7,7 @@ class PasswordsController < ApplicationController
     end
 
     def create
-        @user = User.find_by_email(user_params[:email])
+        @user = User.find_by_email(params[:email])
         if @user
             @user.regenerate_recover_password
             UserMailer.password(@user).deliver_now
