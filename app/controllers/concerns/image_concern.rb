@@ -10,9 +10,14 @@ module ImageConcern
             #after_save "#{field}_file_after_upload".to_sym
             #after_destroy "#{field}_file_commit _destroy".to_sym
 
-            class_eval <<- METHODS
-
-
+            class_eval <<-METHODS
+                def #{field}_url
+                    '/upload/' + [
+                    self.class.name.downcase.pluralize,
+                    it.to_s,
+                    '#{field}.jpg'
+                    ].join('/')
+                end
             METHODS
         end
     end
