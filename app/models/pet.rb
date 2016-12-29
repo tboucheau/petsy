@@ -1,6 +1,6 @@
 class Pet < ApplicationRecord
     belongs_to :user
-    belongs_to :species
+    belongs_to :species, counter_cache: true
 
     validates :name, :gender, :birthday, presence: true
     validates :gender, format: {with: /\A(M|F)\z/}
