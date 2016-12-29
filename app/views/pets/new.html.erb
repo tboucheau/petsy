@@ -1,0 +1,11 @@
+<% content_for :pet do %>
+    <div class="panel panel-default">
+        <div class="panel-heading">Créer un nouvel animal</div>
+        <div class="panel-body">
+            <%= render 'form', pet: @pet %>
+        </div>
+    </div>
+<% end %>
+
+
+<%= render template: 'layouts/profile' %>
