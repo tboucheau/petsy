@@ -31,10 +31,10 @@ class PasswordsController < ApplicationController
         if @user.recover_password === user_params[:recover_password]
             @user.assign_attributes(user_params)
             if @user.valid?
-               @user.recover_password = nil
-               @user.save
-               session[:auth] = @user.to_session
-               redirect_to profil_path, success: 'Votre mot de passe a bien été modifié'
+              @user.recover_password = nil
+              @user.save
+              session[:auth] = @user.to_session
+              redirect_to profil_path, success: 'Votre mot de passe a bien été modifié'
             else
                 render 'edit'
             end
