@@ -19,7 +19,7 @@
     <tbody>
         <% @pets.each do |pet| %>
         <tr>
-            <td></td>
+            <td><%= image_tag pet.avatar_url %></td>
             <td><%= pet.name %></td>
             <td><%= pet.gender %></td>
             <td><%= pet.age %></td>
