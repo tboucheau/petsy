@@ -21,7 +21,7 @@
     <div class="col-md-8">
         <%= f.file_field :image_file, class: 'form-control' %>
         <% unless post.new_record? %>
-            <%= image_tag post.iamge_url(:thumb) %>
+            <%= image_tag post.image_url(:thumb) %>
         <% end %>
     </div>
   </div>
