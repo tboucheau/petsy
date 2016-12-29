@@ -8,9 +8,7 @@ class User < ApplicationRecord
     has_secure_token :confirmation_token
     has_secure_token :recover_password
 
-    after_save :avatar_after_upload
-    after_destroy_commit :avatar_destroy
-    before_save :avatar_before_upload
+    has_image :avatar
 
     validates :username,
         format: {with: /\A[a-zA-Z0-9_]{2,20}\z/, message: 'ne doit contenir que des caractères alphanumériques ou des _'},
@@ -20,11 +18,18 @@ class User < ApplicationRecord
         format: {with: /\A[^@\s]+@([^@.\s]+\.)+[^@.\s]+\z/},
         uniqueness: {case_sensitive: false}
 
-    validates :avatar_file, file: {ext: [:jpg, :png]}
 
     def to_session
         {id: id}
     end
+
+=begin
+ancienne gestion des avatars basculée dans le module ImageConcern
+    after_save :avatar_after_upload
+    after_destroy_commit :avatar_destroy
+    before_save :avatar_before_upload
+
+    validates :avatar_file, file: {ext: [:jpg, :png]}
 
     def avatar_path
         File.join(
@@ -70,4 +75,5 @@ class User < ApplicationRecord
         dir = File.direname(avatar_path)
         FileUtils.rm_r(dir) if Dir.exist?
     end
+=end
 end
