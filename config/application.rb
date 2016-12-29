@@ -18,5 +18,7 @@ module Petsy
         g.test_framework false
         g.jbuilder false
     end
+
+    config.assets.paths >> Rails.root.join('lib', 'assets', 'lib')
   end
 end

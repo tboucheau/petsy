@@ -13,4 +13,8 @@
 //= require jquery
 //= require jquery_ujs
 //= require turbolinks
+//= require flatpickr/flatpickr.js
 //= require_tree .
+//= require_self
+
+flatpickr('.form-datepicker')
