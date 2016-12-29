@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161229022121) do
+ActiveRecord::Schema.define(version: 20161229221314) do
 
   create_table "pets", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
     t.string   "name"
@@ -22,6 +22,15 @@ ActiveRecord::Schema.define(version: 20161229022121) do
     t.datetime "updated_at", null: false
     t.index ["species_id"], name: "index_pets_on_species_id", using: :btree
     t.index ["user_id"], name: "index_pets_on_user_id", using: :btree
+  end
+
+  create_table "posts", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
+    t.string   "name"
+    t.text     "content",    limit: 65535
+    t.integer  "user_id"
+    t.datetime "created_at",               null: false
+    t.datetime "updated_at",               null: false
+    t.index ["user_id"], name: "index_posts_on_user_id", using: :btree
   end
 
   create_table "species", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
@@ -48,4 +57,5 @@ ActiveRecord::Schema.define(version: 20161229022121) do
 
   add_foreign_key "pets", "species"
   add_foreign_key "pets", "users"
+  add_foreign_key "posts", "users"
 end

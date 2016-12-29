@@ -1,0 +1,43 @@
+<%= content_for :tab, :pets %>
+
+<%= content_for :content do %>
+
+
+    <p id="notice"><%= notice %></p>
+
+    <h1>Gérer les Posts</h1>
+
+    <p class="text-right">
+        <a href="<%= new_post_path%>" class="btn btn-primary">Ajouter un </a>
+    </p>
+
+    <table class="table table-striped">
+      <thead>
+        <tr>
+              <th>Name</th>
+              <th>Content</th>
+              <th>User</th>
+              <th>Actions</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <% @posts.each do |post| %>
+          <tr>
+                <td><%= post.name %></td>
+                <td><%= post.content %></td>
+                <td><%= post.user %></td>
+                <td>
+                <%= link_to 'Voir', post, class: 'btn btn-default' %>
+                <%= link_to 'Modifier', edit_post_path(post), class: 'btn btn-primary' %>
+                <%= link_to 'Supprimer', post, class: 'btn btn-danger', method: :delete, data: { confirm: 'Are you sure?' } %>
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+
+
+<% end %>
+
+<%= render template: 'layouts/profile' %>
