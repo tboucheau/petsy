@@ -6,6 +6,9 @@ class Pet < ApplicationRecord
     validates :gender, format: {with: /\A(M|F)\z/}
     validate :birthday_not_future
 
+    def age
+        Time.now.year - birthday.year
+    end
 
     def birthday_not_future
         if birthday.present? && birthday.future?
