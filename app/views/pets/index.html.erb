@@ -27,7 +27,7 @@
             <td>
                 <%= link_to 'Voir', pet, class: 'btn btn-default' %>
                 <%= link_to 'Editer', [:edit, pet], class: 'btn btn-primary' %>
-                <%= link_to 'Supprimer', pet_path, class: 'btn btn-danger', data: {method: :delete, confirm: 'Voulez-vous vraiment supprimer cet animal'} %>
+                <%= link_to 'Supprimer', pet, class: 'btn btn-danger', data: {method: :delete, confirm: 'Voulez-vous vraiment supprimer cet animal'} %>
             </td>
         </tr>
         <% end %>
