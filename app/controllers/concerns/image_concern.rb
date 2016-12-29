@@ -14,7 +14,7 @@ module ImageConcern
                 def #{field}_url
                     '/upload/' + [
                     self.class.name.downcase.pluralize,
-                    it.to_s,
+                    id.to_s,
                     '#{field}.jpg'
                     ].join('/')
                 end
