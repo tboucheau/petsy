@@ -1,6 +1,5 @@
 class User < ApplicationRecord
 
-    attr_accessor :avatar_file
 
     has_many :pets
 
@@ -30,6 +29,8 @@ ancienne gestion des avatars basculée dans le module ImageConcern
     before_save :avatar_before_upload
 
     validates :avatar_file, file: {ext: [:jpg, :png]}
+
+    attr_accessor :avatar_file
 
     def avatar_path
         File.join(
