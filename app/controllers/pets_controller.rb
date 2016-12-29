@@ -41,6 +41,6 @@ class PetsController < ApplicationController
     end
 
     def set_pet
-        @pet = Pet.find(params[:id])
+        @pet = current_user.pets.find(params[:id])
     end
 end
