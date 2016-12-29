@@ -47,7 +47,7 @@ module ImageConcern
                 end
 
                 def #{field}_before_upload
-                    if #{field}_file.respond_to? :path
+                    if #{field}_file.respond_to?(:path) and self.respond_to?(:#{field})
                         self.#{field} = true
                     end
                 end
