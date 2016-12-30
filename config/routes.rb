@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
 
-  resources :posts
-    root to: 'users#new'
+
+    root to: 'page#index'
 
     get '/profil', to: 'users#edit', as: :profil
     patch '/profil', to: 'users#update'
@@ -10,7 +10,11 @@ Rails.application.routes.draw do
     get '/login', to: 'sessions#new', as: :new_session
     post '/login', to: 'sessions#create'
     delete '/logout', to: 'sessions#destroy', as: :destroy_session
-
+    resources :posts do
+        collection do
+            get 'me'
+        end
+    end
     resources :pets do
         resource :subscriptions, only: [:create, :destroy]
     end

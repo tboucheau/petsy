@@ -3,10 +3,20 @@ class PostsController < ApplicationController
   before_action :set_post, only: [:edit, :update, :destroy]
   skip_before_action :only_signed_in
 
+
+  def index
+      pet_ids = current_user.followed_pets.pluck(:id)
+      if pet_ids.empty?
+          @posts = []
+      else
+        @posts = Post.join('INNER JOIN pets_posts ON pets_posts.post_id = posts.id').where("pets_posts.pet_id IN #{pet_ids.join(',')}")
+      end
+  end
+
   # GET /posts
   # GET /posts.json
-  def index
-    @posts = Post.all
+  def me
+    @posts = current_user.posts.all
   end
 
   # GET /posts/1
