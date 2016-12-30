@@ -4,7 +4,7 @@
     </div>
     <div class="col-md-10">
         <h2><%= @pet.name %></h2>
-        <%= debug @pet.subscribers %>
+        <%= link_to "S'abonner", [@pet, Subscription], method: :post %>
     </div>
 </div>
 
