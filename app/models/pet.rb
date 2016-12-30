@@ -28,7 +28,7 @@ class Pet < ApplicationRecord
     end
 
     def followedBy?(user)
-        subscription.where(user_id: user.id).count > 0 if user.respond_to? :id
+        subscriptions.where(user_id: user.id).count > 0 if user.respond_to? :id
     end
 
     private
