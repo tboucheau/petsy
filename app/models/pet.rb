@@ -11,6 +11,8 @@ class Pet < ApplicationRecord
 
     has_image :avatar
 
+    after_destroy :destroy_posts
+
     def age
         Time.now.year - birthday.year
     end
@@ -18,6 +20,13 @@ class Pet < ApplicationRecord
     def birthday_not_future
         if birthday.present? && birthday.future?
             errors.add(:birthday, 'ne peut être dans le futur')
+        end
+    end
+
+    private
+    def destroy_posts
+        Post.find_by_sql('SELECT * FROM posts LEFT JOIN pets_posts ON pets_posts_post_id = posts.id WHERE pets_posts.post_id IS NULL').each do |post|
+            post.destroy
         end
     end
 end
