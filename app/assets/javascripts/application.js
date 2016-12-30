@@ -17,11 +17,13 @@
 //= require select2/select2.js
 //= require_tree .
 //= require_self
-
-flatpickr('.form-datepicker', {
+document.addEventListener('turbolinks:load', function (){
+    flatpickr('.form-datepicker', {
     altInput: true,
     atlFormat: 'j F Y',
     maxDate: new Date()
     })
 
-$('select[multiple]').select2()
+    $('select[multiple]').select2()
+
+})
