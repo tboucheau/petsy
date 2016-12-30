@@ -1,7 +1,7 @@
 class PostsController < ApplicationController
 
   before_action :set_post, only: [:edit, :update, :destroy]
-  skip_before_action :only_signed_in
+  skip_before_action :only_signed_in, only: [:species, :index, :show]
 
 
   def index
