@@ -25,7 +25,7 @@ class Pet < ApplicationRecord
 
     private
     def destroy_posts
-        Post.find_by_sql('SELECT * FROM posts LEFT JOIN pets_posts ON pets_posts_post_id = posts.id WHERE pets_posts.post_id IS NULL').each do |post|
+        Post.find_by_sql('SELECT * FROM posts LEFT JOIN pets_posts ON pets_posts.post_id = posts.id WHERE pets_posts.post_id IS NULL').each do |post|
             post.destroy
         end
     end
