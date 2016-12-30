@@ -12,7 +12,7 @@ Rails.application.routes.draw do
     delete '/logout', to: 'sessions#destroy', as: :destroy_session
 
     resources :pets do
-        resource :subscriptions, only: [:new, :destroy]
+        resource :subscriptions, only: [:create, :destroy]
     end
     resources :passwords, only: [:new, :create, :edit, :update]
     resources :users, only: [:new, :create] do
