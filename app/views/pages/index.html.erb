@@ -5,4 +5,16 @@
             <%= render @posts, cls: 'col-md-6' %>
         </div>
     </div>
+    <div class="col-md-4">
+        <h4>Filtrer</h4>
+        <div class="list-group">
+            <% @species.all.each do |species| %>
+                <%= link_to species.name, root_path, class: 'list-group-item' %>
+            <% end %>
+        </div>
+        <h4>Nouveaux venus</h4>
+        <div class="list-group">
+            <%= render pets %>
+        </div>
+    </div>
 </div>
