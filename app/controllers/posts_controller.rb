@@ -6,6 +6,7 @@ class PostsController < ApplicationController
 
   def index
       pet_ids = current_user.followed_pets.pluck(:id)
+      puts pet_ids
       if pet_ids.empty?
         @posts = []
       else
