@@ -27,10 +27,15 @@ class Pet < ApplicationRecord
         end
     end
 
+    def followedBy?(user)
+        subscriptions.where(user_id: user.id).count > 0 if user.respond_to? :id
+    end
+
     private
     def destroy_posts
         Post.find_by_sql('SELECT * FROM posts LEFT JOIN pets_posts ON pets_posts.post_id = posts.id WHERE pets_posts.post_id IS NULL').each do |post|
             post.destroy
         end
     end
+
 end

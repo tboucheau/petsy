@@ -8,6 +8,9 @@ class User < ApplicationRecord
     has_secure_token :confirmation_token
     has_secure_token :recover_password
 
+    has_many :subscription
+    has_many :followed_pet, through: :subscription, source: :pet
+
     has_image :avatar
 
     validates :username,
