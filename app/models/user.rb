@@ -8,8 +8,8 @@ class User < ApplicationRecord
     has_secure_token :confirmation_token
     has_secure_token :recover_password
 
-    has_many :subscription
-    has_many :followed_pet, through: :subscription, source: :pet
+    has_many :subscriptions
+    has_many :subscribers, through: :subscriptions, source: :user
 
     has_image :avatar
 
