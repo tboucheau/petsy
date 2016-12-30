@@ -1,0 +1,17 @@
+<div class="row">
+    <col-md-2>
+        <%= image_tag @pat.avatar_url, class: 'image-circle' %>
+    </col-md-2>
+    <div class="col-md-10">
+        <h2><%= @pet.name %></h2>
+    </div>
+</div>
+
+
+<div class="row">
+    <% @pet.posts.each do |post| %>
+    <div class="col-md-4">
+        <%= render post %>
+    </div>
+    <% end %>
+</div>
