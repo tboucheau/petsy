@@ -14,6 +14,7 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require flatpickr/flatpickr.js
+//= require select2/select2.js
 //= require_tree .
 //= require_self
 
@@ -22,3 +23,4 @@ flatpickr('.form-datepicker', {
     atlFormat: 'j F Y',
     maxDate: new Date()
     })
+$('select[multiple]').select2
