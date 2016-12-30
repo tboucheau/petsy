@@ -9,8 +9,7 @@ class PostsController < ApplicationController
       if pet_ids.empty?
         @posts = []
       else
-        @posts = Post.joins(:pets).where(pets: {id: pet_ids})
-        #@posts = Post.joins('INNER JOIN pets_posts ON pets_posts.post_id = posts.id').where("pets_posts.pet_id IN (#{pet_ids.join(',')})")
+        @posts = Post.joins('INNER JOIN pets_posts ON pets_posts.post_id = posts.id').where("pets_posts.pet_id IN (#{pet_ids.join(',')})")
       end
   end
 
