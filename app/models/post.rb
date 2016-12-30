@@ -8,7 +8,7 @@ class Post < ApplicationRecord
         thumb: '360x200'
         }
 
-    validates :name, :content, presence: true
+    validates :name, :content, :pet_ids,  presence: true
     validates :image_file, presence: true, on: :create
 
 end
