@@ -11,7 +11,14 @@
 <div class="row">
     <div class="col-md-8">
        <h2>Description</h2>
-        <%= @post.content %>
+       <% if canEdit(@post) %>
+       <p>
+            <%= link_to 'Modifier', [:edit, @post], class: 'btn btn-primary' %>
+
+            <%= link_to 'Supprimer', @post, class: 'btn btn-danger', method: :delete, data: { confirm: 'Are you sure?' } %>
+       </p>
+       <% end %>
+        <p><%= @post.content %></p>
     </div>
     <div class="col-md-4">
       <h2>Présent sur cette photo</h2>
