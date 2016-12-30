@@ -4,7 +4,7 @@ class PetsController < ApplicationController
 
 
     def show
-        @pets = Pet.find(params[:id])
+        @pet = Pet.find(params[:id])
     end
     def index
         @pets = current_user.pets
