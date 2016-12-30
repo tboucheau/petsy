@@ -4,6 +4,10 @@ class Pet < ApplicationRecord
 
     has_and_belongs_to_many :posts
 
+    has_many :subscription
+    has_many :users, through: :subscription
+
+
     validates :name, :gender, :birthday, presence: true
     validates :gender, format: {with: /\A(M|F)\z/}
     validates :avatar_file, presence: true, on: :create
