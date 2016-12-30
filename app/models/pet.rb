@@ -4,7 +4,7 @@ class Pet < ApplicationRecord
 
     has_and_belongs_to_many :posts
 
-    has_many :subscription
+    has_many :subscriptions
     has_many :subscribers, through: :subscription, source: :user
 
 
