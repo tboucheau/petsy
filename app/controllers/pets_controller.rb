@@ -1,6 +1,7 @@
 class PetsController < ApplicationController
 
     before_action :set_pet, only: [:edit, :update, :destroy]
+    skip_before_action :only_signed_in
 
 
     def show
