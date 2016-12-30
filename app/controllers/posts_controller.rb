@@ -70,7 +70,7 @@ class PostsController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def post_params
       p = params.require(:post).permit(:name, :content, :image_file, pet_ids: [])
-      p[:pet_ids] = current_user.perts.where(id: p[:pet_ids]).pluck(:id)
+      p[:pet_ids] = current_user.pets.where(id: p[:pet_ids]).pluck(:id)
       p
 
     end
