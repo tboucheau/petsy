@@ -1,8 +1,8 @@
 class CreateSubscriptions < ActiveRecord::Migration[5.0]
   def change
-    create_table :subscriptions do |t|
-      t.references :user, foreign_key: true
-      t.references :pet, foreign_key: true
+    create_join_table :pets, :users, table_name: 'subscriptions' do |t|
+      t.index [:pet_id, :user_id]
+      t.index [:user_id, :pet_id]
     end
   end
 end
