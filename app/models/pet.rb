@@ -5,7 +5,7 @@ class Pet < ApplicationRecord
     has_and_belongs_to_many :posts
 
     has_many :subscriptions
-    has_many :subscribers, through: :subscription, source: :user
+    has_many :subscribers, through: :subscriptions, source: :user
 
 
     validates :name, :gender, :birthday, presence: true
