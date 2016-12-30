@@ -7,7 +7,7 @@ class PostsController < ApplicationController
   def index
       pet_ids = current_user.followed_pets.pluck(:id)
       if pet_ids.empty?
-          @posts = []
+        @posts = []
       else
         @posts = Post.joins('INNER JOIN pets_posts ON pets_posts.post_id = posts.id').where("pets_posts.pet_id IN (#{pet_ids.join(',')})")
       end
