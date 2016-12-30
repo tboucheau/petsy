@@ -21,7 +21,7 @@ class PostsController < ApplicationController
 
   def species
       @species = Species.find_by_slug!(params[:slug])
-      @posts = Post.joins(:pets).where(pets: {species_id: @species_id})
+      @posts = Post.joins(:pets).where(pets: {species_id: @species.id})
   end
   # GET /posts/1
   # GET /posts/1.json
