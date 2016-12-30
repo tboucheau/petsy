@@ -29,7 +29,7 @@
   <div class="form-group">
     <%= f.label :pet_ids, 'Animaux', class: 'col-md-4 control-label' %>
     <div class="col-md-8">
-        <%= f.select :pet_ids, current_user.pluck(:name, :id), {}, multiple: true, class: 'form-control' %>
+        <%= f.select :pet_ids, Pet.pluck(:name, :id), {}, multiple: true, class: 'form-control' %>
     </div>
   </div>
 
