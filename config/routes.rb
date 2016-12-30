@@ -1,11 +1,12 @@
 Rails.application.routes.draw do
 
 
-  get 'pages/index'
+    get 'pages/index'
 
     root to: 'pages#index'
 
     get '/profil', to: 'users#edit', as: :profil
+    get 'animaux/:slug', to: 'posts#species', as: :species_posts
     patch '/profil', to: 'users#update'
 
     # Session

@@ -9,7 +9,7 @@
         <h4>Filtrer</h4>
         <div class="list-group">
             <% @species.all.each do |species| %>
-                <%= link_to species.name, root_path, class: 'list-group-item' %>
+                <%= link_to species.name, species_posts_path(slug: species.slug), class: 'list-group-item' %>
             <% end %>
         </div>
         <h4>Nouveaux venus</h4>
