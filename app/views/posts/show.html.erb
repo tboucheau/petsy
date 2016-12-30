@@ -16,7 +16,7 @@
     <div class="col-md-4">
       <h2>Présent sur cette photo</h2>
        <ul class="list-group">
-            <% @post.pets.each do |pet| do %>
+            <% @post.pets.each do |pet| %>
             <li class="list-group-item">
                 <%= link_to pet do %>
                     <h4 clas="list-group-item-heading"><%= pet.name %></h4>
