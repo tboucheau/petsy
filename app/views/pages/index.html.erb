@@ -6,15 +6,6 @@
         </div>
     </div>
     <div class="col-md-4">
-        <h4>Filtrer</h4>
-        <div class="list-group">
-            <% @species.all.each do |species| %>
-                <%= link_to species.name, species_posts_path(slug: species.slug), class: 'list-group-item' %>
-            <% end %>
-        </div>
-        <h4>Nouveaux venus</h4>
-        <div class="list-group">
-            <%= render @pets %>
-        </div>
+        <%= render 'shared/sidebar' %>
     </div>
 </div>
