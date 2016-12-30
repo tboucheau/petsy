@@ -1,11 +1,8 @@
 class ApplicationController < ActionController::Base
 
     protect_from_forgery with: :exception
-
     before_action :only_signed_in
-
     add_flash_types :success, :danger
-
     helper_method :current_user, :user_signed_in?
 
     private

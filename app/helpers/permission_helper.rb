@@ -7,6 +7,4 @@ module PermissionHelper
             false
         end
     end
-
-
 end
