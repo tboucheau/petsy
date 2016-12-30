@@ -6,12 +6,12 @@ class SubscriptionsController < ApplicationController
 
     def create
         @pet.subscribers << current_user
-        redirect_to @pet, success: 'Vous êtes maintenant abonné à ' @pet.name
+        redirect_to @pet, success: 'Vous êtes maintenant abonné à ' + @pet.name
     end
 
     def destroy
         @pet.subscribers .delete(current_user)
-        redirect_to @pet, success: 'Vous êtes maintenant désabonné à ' @pet.name
+        redirect_to @pet, success: 'Vous êtes maintenant désabonné à ' + @pet.name
     end
 
 end
