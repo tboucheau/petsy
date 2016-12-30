@@ -10,7 +10,7 @@ class SubscriptionsController < ApplicationController
     end
 
     def destroy
-        @pet.subscribers .delete(current_user)
+        @pet.subscribers.delete(current_user)
         redirect_to @pet, success: 'Vous êtes maintenant désabonné à ' + @pet.name
     end
 
