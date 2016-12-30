@@ -9,7 +9,7 @@ class User < ApplicationRecord
     has_secure_token :recover_password
 
     has_many :subscriptions
-    has_many :followed_pets, through: :subscriptions, source: :pets
+    has_many :followed_pets, through: :subscriptions, source: :pet
 
     has_image :avatar
 
