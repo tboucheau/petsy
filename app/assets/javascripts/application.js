@@ -23,4 +23,5 @@ flatpickr('.form-datepicker', {
     atlFormat: 'j F Y',
     maxDate: new Date()
     })
-$('select[multiple]').select2
+
+$('select[multiple]').select2()

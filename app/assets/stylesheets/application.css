@@ -12,6 +12,6 @@
  *
  *= require_tree .
  *= require_self
- *= require 'flatpickr/flatpickr.css'
- *= require 'select2/select2.css'
+ *= require flatpickr/flatpickr.css
+ *= require select2/select2.css
  */
