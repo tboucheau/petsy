@@ -19,6 +19,10 @@ class PostsController < ApplicationController
     @posts = current_user.posts.all
   end
 
+  def species
+      @species = Species.find_by_slug!(params[:slug])
+      @posts = Post.joins(:pets).where(pets: {species_id: @species_id})
+  end
   # GET /posts/1
   # GET /posts/1.json
   def show
