@@ -28,4 +28,8 @@ Rails.application.routes.draw do
         end
     end
 
+    scope 'superadmin', module: 'admin', as: 'admin' do
+        resources :species
+    end
+
 end
