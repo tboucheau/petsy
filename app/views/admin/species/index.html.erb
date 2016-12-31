@@ -1,0 +1,22 @@
+<h1>Gérer les espèces</h1>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <td>Nom</td>
+            <td>Slug</td>
+            <td>Actions</td>
+        </tr>
+    </thead>
+    <tbody>
+        <% @species.each do |species| %>
+        <tr>
+            <td><%= species.name %></td>
+            <td><%= species.slug %></td>
+            <td>
+                <%= link_to 'Editer', [:edit, :admin, species], class: 'btn btn-primary' %>
+                <%= link_to 'Supprimer', [:admin, species], class: 'btn btn-danger', data: {method: :delete, confirm: 'Voulez-vous supprimer l\'esp\èce \?'} %>
+            </td>
+        </tr>
+        <% end %>
+    </tbody>
+</table>
