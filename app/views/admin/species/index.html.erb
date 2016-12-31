@@ -1,10 +1,15 @@
 <h1>Gérer les espèces</h1>
+
+<p class="text-right">
+    <%= link_to 'Ajouter une espèce', {action: :new}, class: 'btn btn-primary'
+</p>
+
 <table class="table table-striped">
     <thead>
         <tr>
-            <td>Nom</td>
-            <td>Slug</td>
-            <td>Actions</td>
+            <th>Nom</th>
+            <th>Slug</th>
+            <th>Actions</th>
         </tr>
     </thead>
     <tbody>

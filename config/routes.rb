@@ -29,7 +29,7 @@ Rails.application.routes.draw do
     end
 
     scope 'superadmin', module: 'admin', as: 'admin' do
-        resources :species
+        resources :species, except: [:show]
     end
 
 end
