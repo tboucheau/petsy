@@ -19,7 +19,7 @@
             <td><%= species.slug %></td>
             <td>
                 <%= link_to 'Editer', [:edit, :admin, species], class: 'btn btn-primary' %>
-                <%= link_to 'Supprimer', [:admin, species], class: 'btn btn-danger', data: {method: :delete, confirm: 'Voulez-vous supprimer l\'esp\èce \?'} %>
+                <%= link_to 'Supprimer', [:admin, species], class: 'btn btn-danger', data: {method: :delete, confirm: "Voulez-vous supprimer l'espèce ?"} %>
             </td>
         </tr>
         <% end %>
