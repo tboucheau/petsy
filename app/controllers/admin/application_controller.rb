@@ -2,7 +2,7 @@ module Admin
     class ApplicationController < ::ApplicationController
 
     #layout 'admin' -- pour faire un layout différent en administrateur
-    befor_filter :only_admin
+    before_filter :only_admin
 
     private
         def only_admin
