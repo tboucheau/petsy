@@ -1,7 +1,7 @@
 module Admin
     class ApplicationController < ::ApplicationController
 
-    layout 'admin'
+    #layout 'admin' -- pour faire un layout différent en administrateur
 
     end
 end
