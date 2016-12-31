@@ -14,7 +14,7 @@
         <div class="container">
             <div class="narbar-header">
                 <a href="<%= root_path %>" class="navbar-brand">Petsy</a>
-            </div>
+
             <% if isAdmin? %>
             <ul class="nav navbar-nav">
                 <li>
@@ -22,7 +22,7 @@
                 </li>
             </ul>
             <% end %>
-
+            </div>
             <ul class="nav navbar-nav navbar-right">
 
             <% if user_signed_in? %>
