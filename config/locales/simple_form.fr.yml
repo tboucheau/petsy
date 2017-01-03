@@ -13,7 +13,7 @@ fr:
     labels:
         defaults:
             name: 'Nom'
-            avatar_file: 'Votr avatar'
+            avatar_file: 'Votre avatar'
         post:
             name: 'Titre'
     # Examples
