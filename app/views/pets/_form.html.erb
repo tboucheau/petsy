@@ -1,65 +1,10 @@
-<%= simple_form_for pet do |f| %>
+<%= simple_form_for pet, wrapper: :horizontal_form, html: {class: 'form-horizontal'} do |f| %>
 
    <%= f.input :name %>
-
-<% end %>
-
-
-
-    <%= form_for pet, html: {class: 'form-horizontal'} do |f| %>
-
-    <% if pet.errors.any? %>
-    <div class="alert alert-danger">
-        <ul>
-            <% pet.errors.full_messages.each do |message| %>
-            <li><%= message %></li>
-            <% end %>
-        </ul>
-    </div>
-    <% end %>
-
-    <div class="form-group">
-        <%= f.label :name, "Nom", class: 'col-md-4 control-label' %>
-        <div class="col-md-6">
-            <%= f.text_field :name, class: 'form-control' %>
-        </div>
-    </div>
-
-    <div class="form-group">
-        <%= f.label :avatar_file, "Avatar", class: 'col-md-4 control-label' %>
-        <div class="col-md-6">
-            <%= f.file_field :avatar_file, class: 'form-control' %>
-        </div>
-    </div>
-
-    <div class="form-group">
-        <%= f.label :species_id, "Espèce", class: 'col-md-4 control-label' %>
-        <div class="col-md-6">
-            <%= f.select :species_id, Species.pluck(:name, :id), {}, class: 'form-control' %>
-        </div>
-    </div>
-
-    <div class="form-group">
-        <%= f.label :gender, "Sexe", class: 'col-md-4 control-label' %>
-        <div class="col-md-6">
-            <%= f.select :gender, {Male: :M, Femelle: :F}, {}, class: 'form-control' %>
-        </div>
-    </div>
-
-
-    <div class="form-group">
-        <%= f.label :birthday, "Date de naissance", class: 'col-md-4 control-label' %>
-        <div class="col-md-6">
-            <%= f.text_field :birthday, class: 'form-control form-datepicker' %>
-        </div>
-    </div>
-
-    <div class="form-group">
-         <div class="col-md-6 col-md-offset-4">
-             <button type="submit" class="btn btn-primary">
-                    <%= pet.new_record? ? 'Créer' : 'Modifier' %>
-            </button>
-        </div>
-    </div>
+   <%= f.input :avatar_file, as: :file, wrapper: :horizontal_file_input %>
+   <%= f.association :species, include_blank: false %>
+   <%= f.input :gender, collection: {Male: :M, Femelle: :F}, include_blank: false  %>
+   <%= f.input :birthday, as: :string, input_html: {class: 'form-datepicker'} %>
+   <%= f.button :submit, pet.new_record? ? 'Créer' : 'Modifier', class: 'btn btn-primary' %>
 
 <% end %>
