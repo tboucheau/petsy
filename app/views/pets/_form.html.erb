@@ -1,4 +1,12 @@
-<%= form_for pet, html: {class: 'form-horizontal'} do |f| %>
+<%= simple_form_for pet do |f| %>
+
+   <%= f.input :name %>
+
+<% end %>
+
+
+
+    <%= form_for pet, html: {class: 'form-horizontal'} do |f| %>
 
     <% if pet.errors.any? %>
     <div class="alert alert-danger">
