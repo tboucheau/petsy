@@ -1,4 +1,13 @@
-<%= form_for post, html: {class: 'form-horizontal'} do |f| %>
+<%= simple_form_for post do |f| %>
+
+    <%= f.input :name %>
+
+<% end %>
+
+
+
+
+ <%= form_for post, html: {class: 'form-horizontal'} do |f| %>
   <% if post.errors.any? %>
     <div class="alert alert-danger">
       <ul>

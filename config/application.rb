@@ -20,5 +20,6 @@ module Petsy
     end
 
     config.assets.paths << Rails.root.join('lib', 'assets', 'lib')
+    config.i18n.default_locale = :fr
   end
 end
