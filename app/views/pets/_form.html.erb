@@ -5,6 +5,9 @@
    <%= f.association :species, include_blank: false %>
    <%= f.input :gender, collection: {Male: :M, Femelle: :F}, include_blank: false  %>
    <%= f.input :birthday, as: :string, input_html: {class: 'form-datepicker'} %>
+   <%= f.simple_fields_for :species do |ff| %>
+       <%= ff.input :name %>
+   <% end %
    <%= f.button :submit, pet.new_record? ? 'Créer' : 'Modifier', class: 'btn btn-primary' %>
 
 <% end %>
