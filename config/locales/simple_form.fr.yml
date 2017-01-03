@@ -11,7 +11,7 @@ fr:
     error_notification:
       default_message: "Merci de revoir les problèmes ci-dessous:"
     labels:
-        default:
+        defaults:
             name: 'Nom'
             avatar_file: 'Votr avatar'
         post:
