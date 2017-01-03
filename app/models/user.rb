@@ -1,6 +1,6 @@
 class User < ApplicationRecord
 
-
+    attr_accessor :country
     has_many :pets, dependent: :destroy
     has_many :posts, dependent: :destroy
 

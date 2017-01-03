@@ -1,3 +1,10 @@
+
+<%= simple_form_for @user, url: profil_path do |f| %>
+
+    <%= f.input :country %>
+
+<% end %>
+
 <%= content_for :tab, :profil %>
 
 <%= content_for :content do %>
