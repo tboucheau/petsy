@@ -52,6 +52,10 @@ Rails.application.configure do
   # routes, locales, etc. This feature depends on the listen gem.
   config.file_watcher = ActiveSupport::EventedFileUpdateChecker
 
+
+  config.action_controller.perform_caching = true
+  config.cache_store = :file_store, Rails.root.join('tmp/cache/views')
+
   # Default hostname
   config.action_mailer.default_url_options = {host: 'http://ror.appcaze.fr', port: 80}
   config.action_mailer.delivery_method = :smtp
@@ -65,5 +69,4 @@ Rails.application.configure do
       enable_starttls_auto: true  }
 end
 
-config.action_controller.perform_caching = true
-config.cache_store = :file_store, Rails.root.join('tmp/cache/views')
+
