@@ -2,10 +2,7 @@
     <div class="col-md-8">
         <h2>Dernières photos</h2>
         <div class="row">
-        <% @posts.each do |post| %>
-            <%= cache post do %>
-                <%= render post %>
-            <% end %>
+            <%= render partial: 'posts/post', collection: @posts, cached: true %>
         <% end %>
         </div>
     </div>
