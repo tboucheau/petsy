@@ -1,0 +1,8 @@
+languages:
+  Ruby: true
+  JavaScript: true
+  PHP: false
+  Python: false
+exclude_paths:
+- "lib/assets/lib/select2/"
+- "lib/assets/lib/flatpickr"
