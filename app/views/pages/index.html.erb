@@ -2,7 +2,7 @@
     <div class="col-md-8">
         <h2>Dernières photos</h2>
         <div class="row">
-            <%= render @posts, cls: 'col-md-6' %>
+            <%= render partial: 'posts/post', collection: @posts, cached: true %>
         </div>
     </div>
     <div class="col-md-4">
